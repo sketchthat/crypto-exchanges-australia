@@ -1,0 +1,21 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <h1>{{ exchange }}</h1>
+    </mat-toolbar-row>
+    <mat-toolbar-row>
+      <p>
+        <a href="https://{{ link }}" target="_blank">
+          {{ link }}
+          <i class="fas fa-external-link-alt"></i>
+        </a>
+      </p>
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+  <div class="exchange-container">
+    <mat-card class="code-container">
+      <mat-card-content (click)="copyPackage()">
+        {{ npmPackage }}
+      </mat-card-content>
+    </mat-card>
+  </div>

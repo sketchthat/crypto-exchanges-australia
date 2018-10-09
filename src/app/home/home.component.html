@@ -1,0 +1,59 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <h1>Crypto Exchange Wrappers</h1>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<div class="home-container">
+  <mat-card>
+    <mat-card-content>
+      <div
+        fxLayout="row"
+        fxLayout.lt-sm="column"
+        fxLayoutAlign="space-around start"
+        fxFlexFill
+      >
+        <div fxFlex="33%" fxFlex.lt-sm="100%" fxFlexFill class="img-center">
+          <img src="assets/node-logo.svg">
+        </div>
+        <div fxFlex="33%" fxFlex.lt-sm="100%" fxFlexFill class="img-center">
+          <img src="assets/typescript-logo.svg">
+        </div>
+        <div fxFlex="33%" fxFlex.lt-sm="100%" fxFlexFill class="img-center">
+          <img src="assets/npm-logo.svg">
+        </div>
+      </div>
+
+      <p>API wrappers for Node.JS projects. Written in Typescript &amp; avaliable on NPM.</p>
+      <p>Build trading bots on Australian crypto exchanges with these API wrappers.</p>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Australian Exchange Wrappers</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-list>
+        <mat-list-item>
+          <a href="#" mat-line>ACX</a>
+        </mat-list-item>
+        <mat-list-item>
+          <a href="#" mat-line>BlockBid</a>
+        </mat-list-item>
+        <mat-list-item>
+          <a href="#" mat-line>BTC Markets</a>
+        </mat-list-item>
+        <mat-list-item>
+          <a routerLink="/exchange/coinjar" mat-line>CoinJar</a>
+        </mat-list-item>
+        <mat-list-item>
+          <a href="#" mat-line>Huobi</a>
+        </mat-list-item>
+        <mat-list-item>
+          <a href="#" mat-line>Independent Reserve</a>
+        </mat-list-item>
+      </mat-list>
+    </mat-card-content>
+  </mat-card>
+</div>
