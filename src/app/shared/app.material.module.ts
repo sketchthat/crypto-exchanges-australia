@@ -7,10 +7,11 @@ import {
   MatButtonModule,
   MatCardModule,
   MatIconModule,
-  MatListModule,
   MatToolbarModule,
   MatSnackBarModule,
   MatTabsModule,
+  MatTableModule,
+  MatProgressBarModule,
 } from '@angular/material';
 
 @NgModule({
@@ -19,10 +20,11 @@ import {
     FlexLayoutModule,
     MatButtonModule,
     MatCardModule,
+    MatTableModule,
     MatIconModule,
     MatTabsModule,
-    MatListModule,
     MatToolbarModule,
+    MatProgressBarModule,
     MatSnackBarModule,
   ],
 })

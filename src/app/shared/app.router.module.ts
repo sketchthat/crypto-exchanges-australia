@@ -9,7 +9,7 @@ const appRoutes: Routes = [
     component: HomeComponent,
   },
   {
-    path: 'exchange/coinjar',
+    path: 'exchange/coinjarexchange',
     component: CoinjarComponent,
   }
   // { path: '**', component: PageNotFoundComponent }

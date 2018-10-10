@@ -25,12 +25,13 @@ mat-toolbar {
 .home-container {
   padding: 30px;
   font-size: 20px;
-  text-align: center;
   color: #777;
 
-  .img-center {
+  .text-center {
     text-align: center;
+  }
 
+  .img-center {
     img {
       height: 75px;
     }
@@ -39,13 +40,48 @@ mat-toolbar {
   mat-card {
     margin-bottom: 25px;
 
-    a {
-      color: $primary;
-      text-decoration: none;
-      text-align: left;
+    table {
+      width: 100%;
 
-      &:hover {
-        text-decoration: underline;
+      tr {
+        &:not(.mat-header-row) {
+          &:hover {
+            background: #ddd;
+            color: $primary;
+          }
+        }
+      }
+
+      td {
+        i {
+          &.fab {
+            margin-right: 15px;
+            font-size: 150%;
+
+            &.fa-npm:hover {
+              color: #CB3837;
+            }
+
+            &.fa-github:hover {
+              color: #fff;
+            }
+          }
+        }
+      }
+
+      a {
+        color: $primary;
+
+        i {
+          color: #000;
+        }
+
+        text-decoration: none;
+        text-align: left;
+
+        &:hover {
+          text-decoration: underline;
+        }
       }
     }
   }

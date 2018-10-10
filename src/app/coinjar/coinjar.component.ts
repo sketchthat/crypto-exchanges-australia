@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-coinjar',
@@ -10,9 +11,11 @@ export class CoinjarComponent implements OnInit {
 
   constructor(
     private snackbar: MatSnackBar,
+    private title: Title,
   ) { }
 
   ngOnInit() {
+    this.title.setTitle('CoinJar - Exchange Wrapper');
   }
 
   copyMessage(val: string) {

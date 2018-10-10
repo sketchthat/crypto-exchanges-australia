@@ -6,7 +6,7 @@
 
 <div class="home-container">
   <mat-card>
-    <mat-card-content>
+    <mat-card-content class="text-center img-center">
       <div
         fxLayout="row"
         fxLayout.lt-sm="column"
@@ -14,13 +14,13 @@
         fxFlexFill
       >
         <div fxFlex="33%" fxFlex.lt-sm="100%" fxFlexFill class="img-center">
-          <img src="assets/node-logo.svg">
+          <img src="assets/node-logo.svg" alt="Node JS">
         </div>
         <div fxFlex="33%" fxFlex.lt-sm="100%" fxFlexFill class="img-center">
-          <img src="assets/typescript-logo.svg">
+          <img src="assets/typescript-logo.svg" alt="Typescript">
         </div>
         <div fxFlex="33%" fxFlex.lt-sm="100%" fxFlexFill class="img-center">
-          <img src="assets/npm-logo.svg">
+          <img src="assets/npm-logo.svg" alt="NPM">
         </div>
       </div>
 
@@ -34,26 +34,49 @@
       <mat-card-title>Australian Exchange Wrappers</mat-card-title>
     </mat-card-header>
     <mat-card-content>
-      <mat-list>
-        <mat-list-item>
-          <a href="#" mat-line>ACX</a>
-        </mat-list-item>
-        <mat-list-item>
-          <a href="#" mat-line>BlockBid</a>
-        </mat-list-item>
-        <mat-list-item>
-          <a href="#" mat-line>BTC Markets</a>
-        </mat-list-item>
-        <mat-list-item>
-          <a routerLink="/exchange/coinjar" mat-line>CoinJar</a>
-        </mat-list-item>
-        <mat-list-item>
-          <a href="#" mat-line>Huobi</a>
-        </mat-list-item>
-        <mat-list-item>
-          <a href="#" mat-line>Independent Reserve</a>
-        </mat-list-item>
-      </mat-list>
+      <mat-progress-bar *ngIf="!dataSource || !displayedColumns; else showTable" color="primary" mode="indeterminate"></mat-progress-bar>
+      <ng-template #showTable>
+        <table mat-table [dataSource]="dataSource">
+          <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef>Name</th>
+            <td mat-cell *matCellDef="let element">
+              <a routerLink="exchange/{{ element.slug}}">{{ element.name }}</a>
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="build">
+            <th mat-header-cell *matHeaderCellDef>Build Status</th>
+            <td mat-cell *matCellDef="let element">
+              <img [src]="element.build" alt="Build Status" (error)="errorHandler($event)">
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="coverage">
+            <th mat-header-cell *matHeaderCellDef>Test Coverage</th>
+            <td mat-cell *matCellDef="let element">
+              <img [src]="element.coverage" alt="Test Coverage" (error)="errorHandler($event)">
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="dependencies">
+            <th mat-header-cell *matHeaderCellDef>Dependencies Status</th>
+            <td mat-cell *matCellDef="let element">
+              <img [src]="element.dependencies" alt="Dependancies Status" (error)="errorHandler($event)">
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="package">
+            <th mat-header-cell *matHeaderCellDef>Package <i class="fas fa-external-link-alt"></i></th>
+            <td mat-cell *matCellDef="let element">
+              <a [href]="element.package.github" target="_blank"><i class="fab fa-github"></i></a>
+                <a [href]="element.package.npm" target="_blank"><i class="fab fa-npm"></i></a>
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+      </ng-template>
     </mat-card-content>
   </mat-card>
 </div>
