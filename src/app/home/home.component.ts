@@ -40,7 +40,7 @@ export class HomeComponent implements OnInit {
       this.setupExchange('BlockBid', 'blockbid'),
       this.setupExchange('BTC Markets', 'btcmarkets'),
       this.setupExchange('CoinJar', 'coinjarexchange'),
-      this.setupExchange('Huobi', 'huobi', 'huobi-australia', 'huobi-australia'),
+      this.setupExchange('Huobi', 'huobi-australia'),
       this.setupExchange('Independent Reserve', 'independent-reserve', 'independentreserve', 'ir-client'),
     ];
   }
