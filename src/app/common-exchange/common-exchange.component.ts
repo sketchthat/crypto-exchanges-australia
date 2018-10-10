@@ -12,6 +12,7 @@ export class CommonExchangeComponent implements OnInit {
   @Input() package: string;
 
   npmPackage: string;
+  yarnPackage: string;
 
   constructor(
     private snackbar: MatSnackBar,
@@ -19,15 +20,17 @@ export class CommonExchangeComponent implements OnInit {
 
   ngOnInit() {
     this.npmPackage = `npm i ${this.package} --save`;
+    this.yarnPackage = `yarn add ${this.package}`;
   }
 
-  copyPackage() {
+  copyPackage(isNpm: boolean) {
     const selBox = document.createElement('textarea');
     selBox.style.position = 'fixed';
     selBox.style.left = '0';
     selBox.style.top = '0';
     selBox.style.opacity = '0';
-    selBox.value = this.npmPackage;
+
+    selBox.value = isNpm ? this.npmPackage : this.yarnPackage;
 
     document.body.appendChild(selBox);
 

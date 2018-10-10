@@ -38,12 +38,12 @@ mat-toolbar {
 
 .exchange-container {
   padding: 30px;
-  font-size: 20px;
-  text-align: center;
-  color: #777;
 
-  .code-container {
-    background: #ddd;
+  .code-example {
+    padding: 30px;
+    font-size: 20px;
+    text-align: center;
+    color: #777;
     font-size: 15px;
     font-family: 'Courier New', Courier, monospace;
   }

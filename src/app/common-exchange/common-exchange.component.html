@@ -13,9 +13,20 @@
   </mat-toolbar>
 
   <div class="exchange-container">
-    <mat-card class="code-container">
-      <mat-card-content (click)="copyPackage()">
-        {{ npmPackage }}
+    <mat-card>
+      <mat-card-content>
+        <mat-tab-group>
+          <mat-tab label="NPM">
+            <div (click)="copyPackage(true)" class="code-example">
+              {{ npmPackage }}
+            </div>
+          </mat-tab>
+          <mat-tab label="Yarn">
+            <div (click)="copyPackage(false)" class="code-example">
+              {{ yarnPackage }}
+            </div>
+          </mat-tab>
+        </mat-tab-group>
       </mat-card-content>
     </mat-card>
   </div>
