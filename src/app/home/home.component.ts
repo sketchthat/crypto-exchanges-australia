@@ -7,6 +7,7 @@ export interface Exchange {
   build: string;
   coverage: string;
   dependencies: string;
+  version: string;
   package: {
     github: string;
     npm: string;
@@ -33,7 +34,7 @@ export class HomeComponent implements OnInit {
   }
 
   setupExchanges() {
-    this.displayedColumns = ['name', 'build', 'coverage', 'dependencies', 'package'];
+    this.displayedColumns = ['name', 'build', 'coverage', 'dependencies', 'version', 'package'];
 
     this.dataSource = [
       this.setupExchange('ACX', 'acx'),
@@ -46,8 +47,10 @@ export class HomeComponent implements OnInit {
   }
 
   setupExchange(name: string, slug: string, github?: string, npm?: string): Exchange {
+    const npmPackage = (npm ? npm : slug);
     const gitHubPath = 'https://github.com/sketchthat/' + (github ? github : slug);
-    const npmPath = 'https://npmjs.com/package/' + (npm ? npm : slug);
+    const npmPath = `https://npmjs.com/package/${npmPackage}`;
+    const version = `https://badge.fury.io/js/${npmPackage}.svg`;
 
     return {
       name,
@@ -55,6 +58,7 @@ export class HomeComponent implements OnInit {
       build: `https://travis-ci.org/sketchthat/${slug}.svg?branch=master`,
       coverage: `https://coveralls.io/repos/github/sketchthat/${slug}/badge.svg?branch=master`,
       dependencies: `https://david-dm.org/sketchthat/${slug}.svg`,
+      version: version,
       package: {
         github: gitHubPath,
         npm: npmPath,

@@ -65,6 +65,13 @@
             </td>
           </ng-container>
 
+          <ng-container matColumnDef="version">
+            <th mat-header-cell *matHeaderCellDef>Version</th>
+            <td mat-cell *matCellDef="let element">
+              <img [src]="element.version" alt="Version" (error)="errorHandler($event)">
+            </td>
+          </ng-container>
+
           <ng-container matColumnDef="package">
             <th mat-header-cell *matHeaderCellDef>Package <i class="fas fa-external-link-alt"></i></th>
             <td mat-cell *matCellDef="let element">
