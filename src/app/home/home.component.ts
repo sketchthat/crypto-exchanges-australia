@@ -39,7 +39,7 @@ export class HomeComponent implements OnInit {
     this.dataSource = [
       this.setupExchange('ACX', 'acx'),
       this.setupExchange('BlockBid', 'blockbid'),
-      this.setupExchange('BTC Markets', 'btcmarkets', 'btcmarkets', '@sketchthat/btcmarkets'),
+      this.setupExchange('BTC Markets', 'btcmarkets', 'btcmarkets', 'btcmarkets-australia'),
       this.setupExchange('CoinJar', 'coinjarexchange'),
       this.setupExchange('Huobi', 'huobi-australia'),
       this.setupExchange('Independent Reserve', 'independent-reserve', 'independentreserve', 'ir-client'),
